@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Ferrari - Sejarah & Filosofi</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styles for about page */
+        .about-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('img/sf905.jpeg');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0 100px;
+            color: white;
+            text-align: center;
+        }
+        
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--ferrari-red);
+            transform: translateX(-50%);
+        }
+        
+        .timeline-item {
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .timeline-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            width: 45%;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content {
+            left: 55%;
+        }
+        
+        .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: var(--ferrari-red);
+            border-radius: 50%;
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            right: -30px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-content::after {
+            left: -30px;
+        }
+        
+        .values-section {
+            background: #f8f9fa;
+            padding: 80px 0;
+        }
+        
+        .value-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+            height: 100%;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .value-icon {
+            font-size: 3rem;
+            color: var(--ferrari-red);
+            margin-bottom: 20px;
+        }
+        
+        .leadership-section .card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .leadership-section .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .manufacturing-section {
+            padding: 80px 0;
+        }
+        
+        .stats-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('img/ferrari-f8.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 80px 0;
+            color: white;
+        }
+        
+        .stat-item {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--ferrari-red);
+            margin-bottom: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-content {
+                width: calc(100% - 60px);
+                left: 60px !important;
+            }
+            
+            .timeline-content::after {
+                left: -30px !important;
+                right: auto !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo.png" alt="Ferrari Logo" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="model.html">Model</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="balap.html">Balap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- About Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Tentang Ferrari</h1>
+            <p class="lead">Menyelami Lebih Dalam Legenda Otomotif Italia</p>
+        </div>
+    </section>
+
+    <!-- Sejarah Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title mb-4">Sejarah Pendirian Ferrari</h2>
+                    <p>Ferrari didirikan oleh Enzo Ferrari pada tahun 1939 dengan nama awal "Auto Avio Costruzioni". Awalnya, perusahaan ini tidak bermaksud memproduksi mobil jalanan, tetapi fokus pada pembuatan suku cadang untuk mobil balap.</p>
+                    <p>Mobil pertama yang membawa nama Ferrari, 125 S, diluncurkan pada tahun 1947. Mobil ini langsung memenangkan balapan pertamanya di Grand Prix Roma, menandai awal kesuksesan Ferrari di dunia balap.</p>
+                    <p>Enzo Ferrari, yang dijuluki "Il Commendatore" atau "The Great Drake", memiliki filosofi bahwa mobil balap yang baik harus menjadi dasar untuk mobil jalanan yang baik. Filosofi ini tetap menjadi inti dari identitas Ferrari hingga saat ini.</p>
+                </div>
+                <div class="col-lg-6">
+                    <img src="img/pabrik.jpg" alt="Enzo Ferrari" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Linimasa Sejarah Ferrari</h2>
+            <div class="timeline">
+                <!-- Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>1939</h4>
+                        <p>Enzo Ferrari mendirikan Auto Avio Costruzioni di Modena, Italia. Perusahaan awalnya memproduksi suku cadang pesawat dan komponen mobil.</p>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>1947</h4>
+                        <p>Ferrari 125 S, mobil pertama dengan nama Ferrari, diluncurkan. Mobil ini memenangkan balapan pertamanya di Grand Prix Roma.</p>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>1950</h4>
+                        <p>Scuderia Ferrari mulai berkompetisi di Kejuaraan Dunia Formula 1 yang baru dibentuk, menjadi satu-satunya tim yang bertahan sejak musim pertama.</p>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>1969</h4>
+                        <p>Fiat Group memperoleh 50% saham Ferrari, memberikan stabilitas finansial yang diperlukan untuk ekspansi sambil mempertahankan otonomi operasional Ferrari.</p>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>1987</h4>
+                        <p>Ferrari F40 diluncurkan untuk merayakan 40 tahun perusahaan. Ini adalah mobil terakhir yang disetujui oleh Enzo Ferrari sebelum kematiannya.</p>
+                    </div>
+                </div>
+                <!-- Item 6 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h4>2015</h4>
+                        <p>Ferrari melakukan penawaran umum perdana (IPO) di Bursa Efek New York, menandai babak baru dalam sejarah perusahaan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filosofi Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-title mb-4">Filosofi Ferrari</h2>
+                    <blockquote class="blockquote">
+                        <p class="mb-0">"Ferrari bukan sekadar mobil; Ferrari adalah mimpi, passion, dan pencapaian teknis tertinggi dalam industri otomotif."</p>
+                        <footer class="blockquote-footer mt-3">Enzo Ferrari</footer>
+                    </blockquote>
+                    <p class="mt-4">Filosofi Ferrari berpusat pada tiga prinsip utama: kinerja tertinggi, desain ikonik, dan warisan balap yang tak tertandingi. Setiap mobil Ferrari dibuat dengan perhatian terhadap detail yang obsesif, menggabungkan teknologi mutakhir dengan keahlian tangan tradisional.</p>
+                    <p>Ferrari percaya bahwa mobil yang baik harus memberikan pengalaman emosional, bukan hanya transportasi. Inilah yang membedakan Ferrari dari produsen mobil lainnya dan menciptakan ikatan khusus antara mobil dan pemiliknya.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Nilai-Nilai Inti Ferrari</h2>
+            <div class="row">
+                <!-- Value 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="value-card bg-white shadow">
+                        <div class="value-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h4>Kinerja Tertinggi</h4>
+                        <p>Ferrari selalu mengejar batas-batas kinerja teknis, dengan setiap model baru mendorong batas dari apa yang mungkin dicapai dalam hal kecepatan, handling, dan efisiensi.</p>
+                    </div>
+                </div>
+                <!-- Value 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="value-card bg-white shadow">
+                        <div class="value-icon">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <h4>Desain Ikonik</h4>
+                        <p>Setiap Ferrari memiliki desain yang langsung dikenali, menggabungkan keindahan estetika dengan fungsi aerodinamis yang optimal.</p>
+                    </div>
+                </div>
+                <!-- Value 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="value-card bg-white shadow">
+                        <div class="value-icon">
+                            <i class="fas fa-flag-checkered"></i>
+                        </div>
+                        <h4>Warisan Balap</h4>
+                        <p>Teknologi dan pengetahuan dari balap Formula 1 langsung diterapkan pada mobil jalanan Ferrari, memberikan keunggulan kompetitif yang unik.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Manufacturing Section -->
+    <section class="manufacturing-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="img/pabrikluar.jpg" alt="Ferrari Factory" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="section-title mb-4">Proses Manufaktur Ferrari</h2>
+                    <p>Pabrik Ferrari di Maranello, Italia, adalah tempat di mana magic terjadi. Setiap mobil Ferrari diproduksi dengan kombinasi teknologi canggih dan keahlian tangan tradisional.</p>
+                    <p>Proses produksi melibatkan lebih dari 3.000 orang yang bekerja dengan presisi tertinggi. Dari perakitan mesin hingga penyelesaian interior, setiap tahapan diawasi dengan ketat untuk memastikan kualitas tertinggi.</p>
+                    <p>Ferrari memproduksi sekitar 9.000 mobil per tahun, menjaga eksklusivitas dan kualitas yang menjadi ciri khas merek ini. Setiap mobil membutuhkan waktu sekitar tiga bulan untuk diselesaikan dari awal hingga akhir.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Kepemimpinan Ferrari</h2>
+            <div class="row">
+                <!-- Leader 1 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <img src="img/enzo_ferrari.jpg" class="card-img-top" alt="Enzo Ferrari">
+                        <div class="card-body">
+                            <h5 class="card-title">Enzo Ferrari</h5>
+                            <p class="card-text"><strong>Pendiri (1898-1988)</strong></p>
+                            <p class="card-text">Enzo Ferrari mendirikan perusahaan pada tahun 1939. Dikenal sebagai "Il Commendatore", ia memimpin Ferrari hingga kematiannya pada tahun 1988, menciptakan warisan yang tak tertandingi dalam dunia otomotif.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Leader 2 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <img src="img/benedetto.jpg" class="card-img-top" alt="Benedetto Vigna">
+                        <div class="card-body">
+                            <h5 class="card-title">Benedetto Vigna</h5>
+                            <p class="card-text"><strong>CEO (2021-Sekarang)</strong></p>
+                            <p class="card-text">Bergabung dengan Ferrari pada tahun 2021, Vigna membawa pengalaman luas dalam teknologi dan inovasi. Di bawah kepemimpinannya, Ferrari mempercepat transisi menuju elektrifikasi sambil mempertahankan nilai-nilai inti merek.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Leader 3 -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <img src="img/John_elkann_2010.jpg" class="card-img-top" alt="John Elkann">
+                        <div class="card-body">
+                            <h5 class="card-title">John Elkann</h5>
+                            <p class="card-text"><strong>Ketua (2018-Sekarang)</strong></p>
+                            <p class="card-text">Sebagai ketua Ferrari dan CEO Exor, Elkann memimpin strategi jangka panjang perusahaan. Di bawah kepemimpinannya, Ferrari telah memperkuat posisinya sebagai merek mobil mewah yang paling berharga di dunia.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="section-title text-center mb-5 text-white">Ferrari dalam Angka</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">80+</div>
+                        <p>Tahun Pengalaman</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">243+</div>
+                        <p>Kemenangan F1</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">5051   +</div>
+                        <p>Karyawan</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-item">
+                        <div class="stat-number">60+</div>
+                        <p>Negara Pemasaran</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Ferrari S.p.A.</h5>
+                    <p>Via Abetone Inferiore 4, 41053 Maranello (MO), Italy</p>
+                    <p>Tel: +39 0536 949111</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5>Ikuti Kami</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2023 Ferrari. Semua hak dilindungi undang-undang.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Animate stats when in view
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            const statsSection = document.querySelector('.stats-section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        statNumbers.forEach((stat, index) => {
+                            const target = parseInt(stat.textContent);
+                            let current = 0;
+                            const increment = target / 100;
+                            const timer = setInterval(() => {
+                                current += increment;
+                                if (current >= target) {
+                                    stat.textContent = stat.textContent; // Reset to original
+                                    clearInterval(timer);
+                                } else {
+                                    stat.textContent = Math.floor(current) + (stat.textContent.includes('+') ? '+' : '');
+                                }
+                            }, 20);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(statsSection);
+        }
+
+        document.addEventListener('DOMContentLoaded', animateStats);
+    </script>
+</body>
+</html>

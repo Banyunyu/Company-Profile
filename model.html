@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Ferrari - Koleksi Lengkap</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styles for models page */
+        .models-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+            url('img/2019-ferrari-488-pista.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0 100px;
+            color: white;
+            text-align: center;
+        }
+        
+        .filter-buttons {
+            margin-bottom: 30px;
+        }
+        
+        .filter-btn {
+            margin: 5px;
+            border-radius: 30px;
+        }
+        
+        .model-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 30px;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .model-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .model-image {
+            height: 250px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .model-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--ferrari-red);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .model-year {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        .model-specs {
+            font-size: 0.9rem;
+            color: #555;
+        }
+        
+        .model-price {
+            font-weight: bold;
+            color: var(--ferrari-red);
+            font-size: 1.2rem;
+        }
+        
+        .pagination {
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .page-link {
+            color: var(--ferrari-red);
+        }
+        
+        .page-link:hover {
+            color: #fff;
+            background-color: var(--ferrari-red);
+            border-color: var(--ferrari-red);
+        }
+        
+        .page-item.active .page-link {
+            background-color: var(--ferrari-red);
+            border-color: var(--ferrari-red);
+        }
+        
+        .back-to-home {
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo.png" alt="Ferrari Logo" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="model.html">Model</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="balap.html">Balap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Models Hero Section -->
+    <section class="models-hero">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Koleksi Model Ferrari</h1>
+            <p class="lead">Jelajahi seluruh jajaran mobil mewah berperforma tinggi dari Ferrari</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="py-4 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h3 class="text-center mb-4">Filter Berdasarkan Kategori</h3>
+                    <div class="filter-buttons text-center">
+                        <button class="btn btn-outline-danger filter-btn active" data-filter="all">Semua Model</button>
+                        <button class="btn btn-outline-danger filter-btn" data-filter="sports">Sports Cars</button>
+                        <button class="btn btn-outline-danger filter-btn" data-filter="gt">Grand Tourer</button>
+                        <button class="btn btn-outline-danger filter-btn" data-filter="special">Special Series</button>
+                        <button class="btn btn-outline-danger filter-btn" data-filter="limited">Limited Edition</button>
+                        <button class="btn btn-outline-danger filter-btn" data-filter="iconic">Iconic Series</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Models Grid Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row" id="models-container">
+                <!-- Model 1 -->
+                <div class="col-lg-4 col-md-6 mb-4" data-category="sports">
+                    <div class="card h-100 model-card">
+                        <div class="position-relative">
+                            <img src="img/sf90.jpg" class="model-image" alt="Ferrari SF90 Stradale">
+                            <span class="model-badge">Sports</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">SF90 Stradale</h5>
+                            <p class="model-year">2020 - Sekarang</p>
+                            <p class="card-text">Hypercar hibrida pertama Ferrari dengan teknologi F1 yang disematkan pada mobil jalanan.</p>
+                            <div class="model-specs">
+                                <p><strong>Tenaga:</strong> 1.000 hp</p>
+                                <p><strong>0-100 km/jam:</strong> 2.5 detik</p>
+                                <p><strong>Kecepatan Maks:</strong> 340 km/jam</p>
+                            </div>
+                            <p class="model-price">Mulai dari $625,000</p>
+                            <a href="detail1.html" class="btn btn-danger btn-sm">Detail</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Model 2 -->
+                <div class="col-lg-4 col-md-6 mb-4" data-category="sports">
+                    <div class="card h-100 model-card">
+                        <div class="position-relative">
+                            <img src="img/812 superfast.jpeg" class="model-image" alt="Ferrari 812 Superfast">
+                            <span class="model-badge">Sports</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">812 Superfast</h5>
+                            <p class="model-year">2017 - Sekarang</p>
+                            <p class="card-text">Grand tourer dengan mesin V12 terkuat yang pernah dibuat Ferrari.</p>
+                            <div class="model-specs">
+                                <p><strong>Tenaga:</strong> 800 hp</p>
+                                <p><strong>0-100 km/jam:</strong> 2.9 detik</p>
+                                <p><strong>Kecepatan Maks:</strong> 340 km/jam</p>
+                            </div>
+                            <p class="model-price">Mulai dari $335,000</p>
+                            <a href="#" class="btn btn-danger btn-sm">Detail</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Model 3 -->
+                <div class="col-lg-4 col-md-6 mb-4" data-category="gt">
+                    <div class="card h-100 model-card">
+                        <div class="position-relative">
+                            <img src="img/portofino2.jpg" class="model-image" alt="Ferrari Portofino">
+                            <span class="model-badge">Grand Tourer</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Portofino M</h5>
+                            <p class="model-year">2020 - Sekarang</p>
+                            <p class="card-text">GT convertible yang sempurna untuk perjalanan jarak jauh dengan kenyamanan maksimal.</p>
+                            <div class="model-specs">
+                                <p><strong>Tenaga:</strong> 620 hp</p>
+                                <p><strong>0-100 km/jam:</strong> 3.45 detik</p>
+                                <p><strong>Kecepatan Maks:</strong> 320 km/jam</p>
+                            </div>
+                            <p class="model-price">Mulai dari $215,000</p>
+                            <a href="#" class="btn btn-danger btn-sm">Detail</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Model 4 -->
+                <div class="col-lg-4 col-md-6 mb-4" data-category="special">
+                    <div class="card h-100 model-card">
+                        <div class="position-relative">
+                            <img src="img/la ferrari.jpg" class="model-image" alt="Ferrari LaFerrari">
+                            <span class="model-badge">Special Series</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">LaFerrari</h5>
+                            <p class="model-year">2013 - 2018</p>
+                            <p class="card-text">Hypercar hibrida limited edition yang menjadi lambang teknologi Ferrari.</p>
+                            <div class="model-specs">
+                                <p><strong>Tenaga:</strong> 950 hp</p>
+                                <p><strong>0-100 km/jam:</strong> 2.4 detik</p>
+                                <p><strong>Kecepatan Maks:</strong> 350 km/jam</p>
+                            </div>
+                            <p class="model-price">$1,400,000 (Terbatas)</p>
+                            <a href="#" class="btn btn-danger btn-sm">Detail</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Model 5 -->
+                <div class="col-lg-4 col-md-6 mb-4" data-category="sports">
+                    <div class="card h-100 model-card">
+                        <div class="position-relative">
+                            <img src="img/ferrari-f8-tributo.jpeg" class="model-image" alt="Ferrari F8 Tributo">
+                            <span class="model-badge">Sports</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">F8 Tributo</h5>
+                            <p class="model-year">2019 - Sekarang</p>
+                            <p class="card-text">Penerus dari 488 GTB dengan peningkatan aerodinamika dan performa.</p>
+                            <div class="model-specs">
+                                <p><strong>Tenaga:</strong> 720 hp</p>
+                                <p><strong>0-100 km/jam:</strong> 2.9 detik</p>
+                                <p><strong>Kecepatan Maks:</strong> 340 km/jam</p>
+                            </div>
+                            <p class="model-price">Mulai dari $276,000</p>
+                            <a href="#" class="btn btn-danger btn-sm">Detail</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Model 6 -->
+                <div class="col-lg-4 col-md-6 mb-4" data-category="gt">
+                    <div class="card h-100 model-card">
+                        <div class="position-relative">
+                            <img src="img/ferrari_roma.jpg" class="model-image" alt="Ferrari Roma">
+                            <span class="model-badge">Grand Tourer</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Roma</h5>
+                            <p class="model-year">2020 - Sekarang</p>
+                            <p class="card-text">Coupe mewah dengan desain elegan yang terinspirasi dari Roma tahun 1950-an.</p>
+                            <div class="model-specs">
+                                <p><strong>Tenaga:</strong> 620 hp</p>
+                                <p><strong>0-100 km/jam:</strong> 3.4 detik</p>
+                                <p><strong>Kecepatan Maks:</strong> 320 km/jam</p>
+                            </div>
+                            <p class="model-price">Mulai dari $222,000</p>
+                            <a href="#" class="btn btn-danger btn-sm">Detail</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Model 7 -->
+                <div class="col-lg-4 col-md-6 mb-4" data-category="limited">
+                    <div class="card h-100 model-card">
+                        <div class="position-relative">
+                            <img src="img/ferrari_monza.jpg" class="model-image" alt="Ferrari Monza SP1">
+                            <span class="model-badge">Limited Edition</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Monza SP1</h5>
+                            <p class="model-year">2018 - Sekarang</p>
+                            <p class="card-text">Speedster single-seater yang terinspirasi dari mobil balap klasik Ferrari.</p>
+                            <div class="model-specs">
+                                <p><strong>Tenaga:</strong> 810 hp</p>
+                                <p><strong>0-100 km/jam:</strong> 2.9 detik</p>
+                                <p><strong>Kecepatan Maks:</strong> 290 km/jam</p>
+                            </div>
+                            <p class="model-price">$1,750,000 (Terbatas)</p>
+                            <a href="#" class="btn btn-danger btn-sm">Detail</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Model 8 -->
+                <div class="col-lg-4 col-md-6 mb-4" data-category="iconic">
+                    <div class="card h-100 model-card">
+                        <div class="position-relative">
+                            <img src="img/Ferrari_Testarossa_IMG_3043.jpg" class="model-image" alt="Ferrari Testarossa">
+                            <span class="model-badge">Iconic Series</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Testarossa</h5>
+                            <p class="model-year">1984 - 1996</p>
+                            <p class="card-text">Icon tahun 80-an dengan desain side-strake yang ikonik dan mesin flat-12.</p>
+                            <div class="model-specs">
+                                <p><strong>Tenaga:</strong> 390 hp</p>
+                                <p><strong>0-100 km/jam:</strong> 5.3 detik</p>
+                                <p><strong>Kecepatan Maks:</strong> 290 km/jam</p>
+                            </div>
+                            <p class="model-price">Klasik - Harga Bervariasi</p>
+                            <a href="#" class="btn btn-danger btn-sm">Detail</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Model 9 -->
+                <div class="col-lg-4 col-md-6 mb-4" data-category="iconic">
+                    <div class="card h-100 model-card">
+                        <div class="position-relative">
+                            <img src="img/f40.jpg" class="model-image" alt="Ferrari F40">
+                            <span class="model-badge">Iconic Series</span>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">F40</h5>
+                            <p class="model-year">1987 - 1992</p>
+                            <p class="card-text">Supercar legendaris yang dibuat untuk merayakan 40 tahun Ferrari.</p>
+                            <div class="model-specs">
+                                <p><strong>Tenaga:</strong> 478 hp</p>
+                                <p><strong>0-100 km/jam:</strong> 4.1 detik</p>
+                                <p><strong>Kecepatan Maks:</strong> 324 km/jam</p>
+                            </div>
+                            <p class="model-price">Klasik - Harga Bervariasi</p>
+                            <a href="#" class="btn btn-danger btn-sm">Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <nav aria-label="Model pagination">
+                <ul class="pagination">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1">Previous</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <!-- Back to Home -->
+            <div class="back-to-home">
+                <a href="home.html" class="btn btn-outline-danger">Kembali ke Halaman Utama</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Ferrari S.p.A.</h5>
+                    <p>Via Abetone Inferiore 4, 41053 Maranello (MO), Italy</p>
+                    <p>Tel: +39 0536 949111</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5>Ikuti Kami</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2023 Ferrari. Semua hak dilindungi undang-undang.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const modelCards = document.querySelectorAll('[data-category]');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    modelCards.forEach(card => {
+                        if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                            card.style.display = 'block';
+                            // Add animation
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 100);
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Add animation to cards on page load
+            setTimeout(() => {
+                modelCards.forEach((card, index) => {
+                    setTimeout(() => {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                        
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 50);
+                    }, index * 100);
+                });
+            }, 300);
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balap Ferrari - Warisan di Formula 1</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styles for racing page */
+        .racing-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('img/Charles_Leclerc_2022.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0 100px;
+            color: white;
+            text-align: center;
+        }
+        
+        .f1-stats {
+            background: var(--dark-bg);
+            color: white;
+            padding: 60px 0;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s;
+        }
+        
+        .stat-box:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--ferrari-red);
+            margin-bottom: 10px;
+        }
+        
+        .driver-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            margin-bottom: 30px;
+        }
+        
+        .driver-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .driver-image {
+            height: 300px;
+            object-fit: cover;
+            width: 100%;
+        }
+        
+        .driver-achievements {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .driver-achievements li {
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .car-evolution {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .evolution-item {
+            margin-bottom: 50px;
+        }
+        
+        .evolution-year {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--ferrari-red);
+            margin-bottom: 10px;
+        }
+        
+        .team-section {
+            padding: 80px 0;
+        }
+        
+        .team-member {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .team-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid var(--ferrari-red);
+        }
+        
+        .racing-moments {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), 
+            url('img/Michael_Schumacher_Ferrari_2004.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            padding: 80px 0;
+            color: white;
+        }
+        
+        .moment-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .season-table {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .table th {
+            background: var(--ferrari-red);
+            color: white;
+            border: none;
+        }
+        
+        .championship-badge {
+            background: var(--ferrari-red);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .stat-number {
+                font-size: 2rem;
+            }
+            
+            .driver-image {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img src="img/logo.png" alt="Ferrari Logo" height="50">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="model.html">Model</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="balap.html">Balap</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Racing Hero Section -->
+    <section class="racing-hero">
+        <div class="container">
+            <h1 class="display-4 fw-bold">Scuderia Ferrari</h1>
+            <p class="lead">Tim Terbesar dalam Sejarah Formula 1</p>
+        </div>
+    </section>
+
+    <!-- F1 Stats Section -->
+    <section class="f1-stats">
+        <div class="container">
+            <h2 class="section-title text-center mb-5 text-white">Rekor Formula 1 Ferrari</h2>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="stat-box">
+                        <div class="stat-number">16</div>
+                        <p>Kejuaraan Konstruktor</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-box">
+                        <div class="stat-number">15</div>
+                        <p>Kejuaraan Pembalap</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-box">
+                        <div class="stat-number">243</div>
+                        <p>Kemenangan Grand Prix</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="stat-box">
+                        <div class="stat-number">800+</div>
+                        <p>Start Grand Prix</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legendary Drivers Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Pembalap Legendaris Ferrari</h2>
+            <div class="row">
+                <!-- Driver 1 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 driver-card">
+                        <img src="img/Michael_Schumacher.jpg " class="driver-image" alt="Michael Schumacher">
+                        <div class="card-body">
+                            <h5 class="card-title">Michael Schumacher</h5>
+                            <p class="card-text"><strong>Periode: 1996-2006</strong></p>
+                            <p class="card-text">Pembalap tersukses dalam sejarah Ferrari, memenangkan 5 kejuaraan dunia berturut-turut dari 2000-2004.</p>
+                            <ul class="driver-achievements">
+                                <li>5x Juara Dunia dengan Ferrari</li>
+                                <li>72 kemenangan Grand Prix</li>
+                                <li>116 podium finish</li>
+                                <li>Membawa Ferrari ke puncak kejayaan</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Driver 2 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 driver-card">
+                        <img src="img/niki_lauda.jpg" class="driver-image" alt="Niki Lauda">
+                        <div class="card-body">
+                            <h5 class="card-title">Niki Lauda</h5>
+                            <p class="card-text"><strong>Periode: 1974-1977</strong></p>
+                            <p class="card-text">Legenda yang kembali balap hanya 6 minggu setelah kecelakaan mengerikan di Nürburgring 1976.</p>
+                            <ul class="driver-achievements">
+                                <li>2x Juara Dunia dengan Ferrari</li>
+                                <li>15 kemenangan Grand Prix</li>
+                                <li>Comeback legendaris setelah kecelakaan</li>
+                                <li>Icon ketangguhan dan determinasi</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Driver 3 -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 driver-card">
+                        <img src="img/alberto-ascari.jpg" class="driver-image" alt="Alberto Ascari">
+                        <div class="card-body">
+                            <h5 class="card-title">Alberto Ascari</h5>
+                            <p class="card-text"><strong>Periode: 1950-1955</strong></p>
+                            <p class="card-text">Pembalap pertama yang menjadi juara dunia dengan Ferrari dan pembalap Italia pertama yang menjadi juara dunia.</p>
+                            <ul class="driver-achievements">
+                                <li>2x Juara Dunia berturut-turut</li>
+                                <li>13 kemenangan Grand Prix</li>
+                                <li>Pembalap Ferrari pertama yang juara</li>
+                                <li>Legenda era awal Formula 1</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Car Evolution Section -->
+    <section class="car-evolution">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Evolusi Mobil Balap Ferrari</h2>
+            
+            <!-- Evolution 1 -->
+            <div class="row evolution-item align-items-center">
+                <div class="col-md-4">
+                    <img src="img/ferrari125-f1.jpg" class="img-fluid rounded shadow" alt="Ferrari 125 F1">
+                </div>
+                <div class="col-md-8">
+                    <div class="evolution-year">1950 - Ferrari 125 F1</div>
+                    <h4>Mobil Ferrari Pertama di F1</h4>
+                    <p>Mobil pertama Ferrari di Formula 1 menggunakan mesin V12 1.5L yang menghasilkan sekitar 230 hp. Meskipun tidak kompetitif di musim perdananya, mobil ini menjadi fondasi untuk kesuksesan masa depan.</p>
+                    <ul>
+                        <li>Mesin V12 1.5L</li>
+                        <li>230 tenaga kuda</li>
+                        <li>Start pertama di Grand Prix Monaco 1950</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Evolution 2 -->
+            <div class="row evolution-item align-items-center">
+                <div class="col-md-8">
+                    <div class="evolution-year">1975 - Ferrari 312T</div>
+                    <h4>Revolusi Transversal Gearbox</h4>
+                    <p>Ferrari 312T menjadi salah mobil paling sukses dengan gearbox transversal yang memberikan distribusi berat lebih baik. Mobil ini membawa Niki Lauda menjadi juara dunia.</p>
+                    <ul>
+                        <li>Mesin Flat-12 3.0L</li>
+                        <li>Gearbox transversal</li>
+                        <li>27 kemenangan Grand Prix</li>
+                        <li>4 kejuaraan konstruktor</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <img src="img/1975-ferrari-312t.jpg" class="img-fluid rounded shadow" alt="Ferrari 312T">
+                </div>
+            </div>
+            
+            <!-- Evolution 3 -->
+            <div class="row evolution-item align-items-center">
+                <div class="col-md-4">
+                    <img src="img/Michael_Schumacher_Ferrari_2004.jpg" class="img-fluid rounded shadow" alt="Ferrari F2004">
+                </div>
+                <div class="col-md-8">
+                    <div class="evolution-year">2004 - Ferrari F2004</div>
+                    <h4>Mobil Terdominan Era Schumacher</h4>
+                    <p>Dianggap sebagai salah satu mobil F1 terbaik sepanjang masa, F2004 memenangkan 15 dari 18 balapan di musim 2004, membawa Michael Schumacher meraih gelar juara dunia ketujuhnya.</p>
+                    <ul>
+                        <li>Mesin V10 3.0L</li>
+                        <li>15 kemenangan dalam 1 musim</li>
+                        <li>Puncak dominasi Ferrari</li>
+                        <li>Teknologi aerodinamis mutakhir</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Evolution 4 -->
+            <div class="row evolution-item align-items-center">
+                <div class="col-md-8">
+                    <div class="evolution-year">2022 - Ferrari F1-75</div>
+                    <h4>Era Regulasi Baru</h4>
+                    <p>F1-75 adalah mobil pertama Ferrari di era regulasi ground effect baru. Dengan desain yang inovatif, mobil ini mengembalikan Ferrari ke puncak persaingan setelah beberapa tahun sulit.</p>
+                    <ul>
+                        <li>Mesin V6 Turbo Hybrid</li>
+                        <li>Desain ground effect</li>
+                        <li>Kembali memenangkan balapan</li>
+                        <li>Platform untuk masa depan</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <img src="img/Charles_Leclerc_2022.jpg" class="img-fluid rounded shadow" alt="Ferrari F1-75">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Team Section -->
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Tim Scuderia Ferrari 2024</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="team-member">
+                        <img src="img/charles-leclerc-scuderia-ferra.jpg" class="team-image" alt="Charles Leclerc">
+                        <h4>Charles Leclerc</h4>
+                        <p><strong>Pembalap Utama</strong></p>
+                        <p>Pembalap Monegasque yang bergabung dengan Ferrari pada 2019. Dikenal dengan kemampuan kualifikasi yang luar biasa dan bakat alam yang besar.</p>
+                        <p><strong>Pencapaian:</strong> 5 wins, 20 podiums, 18 pole positions</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="team-member">
+                        <img src="img/carlosss.jpg" class="team-image" alt="Carlos Sainz">
+                        <h4>Carlos Sainz</h4>
+                        <p><strong>Pembalap Utama</strong></p>
+                        <p>Pembalap Spanyol yang bergabung pada 2021. Dikenal konsisten dan menjadi pembalap non-Mercedes pertama yang memenangkan balapan di era hybrid.</p>
+                        <p><strong>Pencapaian:</strong> 2 wins, 15 podiums dengan Ferrari</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row mt-5">
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <i class="fas fa-cogs team-image" style="font-size: 4rem; display: flex; align-items: center; justify-content: center;"></i>
+                        <h4>Frédéric Vasseur</h4>
+                        <p><strong>Team Principal</strong></p>
+                        <p>Pemimpin tim yang bertanggung jawab atas seluruh operasi Scuderia Ferrari di Formula 1.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <i class="fas fa-tools team-image" style="font-size: 4rem; display: flex; align-items: center; justify-content: center;"></i>
+                        <h4>Enrico Cardile</h4>
+                        <p><strong>Technical Director</strong></p>
+                        <p>Bertanggung jawab atas pengembangan teknis dan desain mobil balap Ferrari.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="team-member">
+                        <i class="fas fa-microchip team-image" style="font-size: 4rem; display: flex; align-items: center; justify-content: center;"></i>
+                        <h4>Ernesto Lasagna</h4>
+                        <p><strong>Power Unit Director</strong></p>
+                        <p>Memimpin pengembangan unit daya hybrid yang menjadi jantung mobil Ferrari.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Championship History Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Sejarah Kejuaraan Ferrari</h2>
+            <div class="season-table">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Tahun</th>
+                            <th>Pembalap Juara</th>
+                            <th>Mobil</th>
+                            <th>Kemenangan</th>
+                            <th>Poin</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1952</td>
+                            <td>Alberto Ascari</td>
+                            <td>Ferrari 500</td>
+                            <td>6</td>
+                            <td>36</td>
+                        </tr>
+                        <tr>
+                            <td>1953</td>
+                            <td>Alberto Ascari</td>
+                            <td>Ferrari 500</td>
+                            <td>5</td>
+                            <td>34.5</td>
+                        </tr>
+                        <tr>
+                            <td>1956</td>
+                            <td>Juan Manuel Fangio</td>
+                            <td>Ferrari D50</td>
+                            <td>3</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>1958</td>
+                            <td>Mike Hawthorn</td>
+                            <td>Ferrari Dino 246</td>
+                            <td>1</td>
+                            <td>42</td>
+                        </tr>
+                        <tr>
+                            <td>1961</td>
+                            <td>Phil Hill</td>
+                            <td>Ferrari 156</td>
+                            <td>2</td>
+                            <td>34</td>
+                        </tr>
+                        <tr>
+                            <td>1964</td>
+                            <td>John Surtees</td>
+                            <td>Ferrari 158</td>
+                            <td>2</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>1975</td>
+                            <td>Niki Lauda</td>
+                            <td>Ferrari 312T</td>
+                            <td>5</td>
+                            <td>64.5</td>
+                        </tr>
+                        <tr>
+                            <td>1977</td>
+                            <td>Niki Lauda</td>
+                            <td>Ferrari 312T2</td>
+                            <td>3</td>
+                            <td>72</td>
+                        </tr>
+                        <tr>
+                            <td>1979</td>
+                            <td>Jody Scheckter</td>
+                            <td>Ferrari 312T4</td>
+                            <td>3</td>
+                            <td>51</td>
+                        </tr>
+                        <tr>
+                            <td>2000</td>
+                            <td>Michael Schumacher</td>
+                            <td>Ferrari F1-2000</td>
+                            <td>9</td>
+                            <td>108</td>
+                        </tr>
+                        <tr>
+                            <td>2001</td>
+                            <td>Michael Schumacher</td>
+                            <td>Ferrari F2001</td>
+                            <td>9</td>
+                            <td>123</td>
+                        </tr>
+                        <tr>
+                            <td>2002</td>
+                            <td>Michael Schumacher</td>
+                            <td>Ferrari F2002</td>
+                            <td>11</td>
+                            <td>144</td>
+                        </tr>
+                        <tr>
+                            <td>2003</td>
+                            <td>Michael Schumacher</td>
+                            <td>Ferrari F2003-GA</td>
+                            <td>6</td>
+                            <td>93</td>
+                        </tr>
+                        <tr>
+                            <td>2004</td>
+                            <td>Michael Schumacher</td>
+                            <td>Ferrari F2004</td>
+                            <td>13</td>
+                            <td>148</td>
+                        </tr>
+                        <tr>
+                            <td>2007</td>
+                            <td>Kimi Räikkönen</td>
+                            <td>Ferrari F2007</td>
+                            <td>6</td>
+                            <td>110</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Memorable Moments Section -->
+    <section class="racing-moments">
+        <div class="container">
+            <h2 class="section-title text-center mb-5 text-white">Momen Tak Terlupakan</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="moment-card">
+                        <h4>Kemenangan Pertama (1951)</h4>
+                        <p>Kemenangan pertama Ferrari di F1 oleh José Froilán González di Silverstone, mengalahkan dominasi Alfa Romeo.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="moment-card">
+                        <h4>Comeback Lauda (1976)</h4>
+                        <p>Niki Lauda kembali balap hanya 6 minggu setelah kecelakaan mengerikan di Nürburgring, menunjukkan ketangguhan luar biasa.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="moment-card">
+                        <h4>Schumacher's 5th Title (2002)</h4>
+                        <p>Michael Schumacher meraih gelar kelimanya dengan Ferrari di Magny-Cours, menjadi juara dunia paling awal dalam sejarah.</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="moment-card">
+                        <h4>Kimi's Championship (2007)</h4>
+                        <p>Kimi Räikkönen memenangkan kejuaraan di balapan terakhir musim, mengalahkan Lewis Hamilton dan Fernando Alonso.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Scuderia Ferrari</h5>
+                    <p>Via Abetone Inferiore 4, 41053 Maranello (MO), Italy</p>
+                    <p>Tel: +39 0536 949111</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5>Ikuti Scuderia</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <p>&copy; 2023 Scuderia Ferrari. Semua hak dilindungi undang-undang.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Animate stats when in view
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            const statsSection = document.querySelector('.f1-stats');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        statNumbers.forEach((stat, index) => {
+                            const target = parseInt(stat.textContent);
+                            let current = 0;
+                            const increment = target / 50;
+                            const timer = setInterval(() => {
+                                current += increment;
+                                if (current >= target) {
+                                    stat.textContent = target;
+                                    clearInterval(timer);
+                                } else {
+                                    stat.textContent = Math.floor(current);
+                                }
+                            }, 30);
+                        });
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            observer.observe(statsSection);
+        }
+
+        document.addEventListener('DOMContentLoaded', animateStats);
+
+        // Add animation to driver cards
+        const driverCards = document.querySelectorAll('.driver-card');
+        driverCards.forEach((card, index) => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, index * 200);
+        });
+    </script>
+</body>
+</html>
